@@ -32,49 +32,27 @@
 	return scene;
 }
 
-- (void) animation_finished
+-(void) loadAddition: (CCMenuItemImage *) item
 {
-    int x = arc4random() % 320;
-    int y = arc4random() % 480;
-    
-    id moveTo = [CCMoveTo actionWithDuration:2.0 position:ccp(x,y)];
-    id callback = [CCCallFunc actionWithTarget:self selector:@selector(animation_finished)];
-    id ease = [CCEaseBounceInOut actionWithAction:moveTo];
-    
-    [self.monkey runAction:[CCSequence actions: ease, callback, nil]];
-
+    NSLog(@"Load addition fired");
 }
 // on "init" you need to initialize your instance
 -(id) init
 {
 	if( (self=[super init])) {
+        CGSize windowSize = [[CCDirector sharedDirector] winSize];
         isTouchEnabled_ = YES;
-        self.monkey = [CCSprite spriteWithFile:@"yoshiisland.gif"];
         
-        int x = arc4random() % 320;
-        int y = arc4random() % 480;
+        CCMenuItemImage *menuItem1 = [CCMenuItemImage itemFromNormalImage:@"Icon-Small.png" selectedImage:@"Icon-Small.png" target:self selector:@selector(loadAddition:)];
+        [menuItem1 setScale:1.5];
         
-        id moveTo = [CCMoveTo actionWithDuration:2.0 position:ccp(x,y)];
-        id callback = [CCCallFunc actionWithTarget:self selector:@selector(animation_finished)];
-        id ease = [CCEaseBounceInOut actionWithAction:moveTo];
-        [self.monkey runAction:[CCSequence actions: ease, callback, nil]];
-        [self addChild:self.monkey];
+        CCMenuItemImage *menuItem2 = [CCMenuItemImage itemFromNormalImage:@"yoshiisland.gif" selectedImage:@"Icon-Small.png" target:self selector:@selector(loadAddition:)];
+        [menuItem2 setScale:0.7];
         
-//        CGSize windowSize = [[CCDirector sharedDirector] winSize];
-//        CCSprite *monkey = [CCSprite spriteWithFile:@"yoshiisland.gif"];
-//        monkey.position = ccp(windowSize.width/2,windowSize.height/2);
-//        
-//        id moveTo = [CCMoveTo actionWithDuration:0.9 position:ccp(100,100)];
-//        id rotateBy = [CCRotateBy actionWithDuration:0.9 angle:360];
-//        id callback = [CCCallFunc actionWithTarget:self selector:@selector(animation_finished)];
-//        
-//        [monkey runAction:[CCSequence actions:moveTo, rotateBy, callback, nil]];
-//        [monkey runAction: [CCMoveTo actionWithDuration:0.9 position:ccp(200,200)]];
-//        [monkey runAction: [CCRotateBy actionWithDuration: 0.9 angle:360]];
-//        
-//        
-//        [self addChild:monkey];
+        CCMenu *menu = [CCMenu menuWithItems:menuItem1, menuItem2, nil];
+        [menu alignItemsVerticallyWithPadding:5];
         
+        [self addChild:menu];
         
         
 	}
@@ -87,21 +65,6 @@
     CGPoint location = [touch locationInView:[touch view]];
     location = [[CCDirector sharedDirector] convertToGL:location];
     
-    
-    CCSprite *background = (CCSprite *)[self getChildByTag:100];
-    
-    id effect = [CCLiquid actionWithWaves:10 amplitude:10 grid:ccg(10,10) duration:3];
-    
-    [background runAction:effect];
-    float distance = powf(self.monkey.position.x - location.x, 2) + powf(self.monkey.position.y - location.y, 2);
-    
-    distance = sqrtf(distance);
-    
-    if(distance <= 25)
-    {
-        id ease = [CCEaseElasticInOut actionWithAction:[CCRotateBy actionWithDuration:5.0 angle:360] period:0.4];
-        [self.monkey runAction:ease];
-    }
 }
 // on "dealloc" you need to release all your retained objects
 - (void) dealloc
