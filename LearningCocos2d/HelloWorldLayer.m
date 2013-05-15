@@ -32,7 +32,7 @@
 	return scene;
 }
 
--(void) loadAddition: (CCMenuItemImage *) item
+-(void) loadAddition: (id) item
 {
     NSLog(@"Load addition fired");
 }
@@ -43,12 +43,8 @@
         CGSize windowSize = [[CCDirector sharedDirector] winSize];
         isTouchEnabled_ = YES;
         
-        CCMenuItemImage *menuItem1 = [CCMenuItemImage itemFromNormalImage:@"Icon-Small.png" selectedImage:@"Icon-Small.png" target:self selector:@selector(loadAddition:)];
-        [menuItem1 setScale:1.5];
-        
-        CCMenuItemImage *menuItem2 = [CCMenuItemImage itemFromNormalImage:@"yoshiisland.gif" selectedImage:@"Icon-Small.png" target:self selector:@selector(loadAddition:)];
-        [menuItem2 setScale:0.7];
-        
+        CCMenuItemFont *menuItem1 = [CCMenuItemFont itemFromString:@"Play game" target:self selector:@selector(loadAddition:)];
+        CCMenuItemFont *menuItem2 = [CCMenuItemFont itemFromString:@"Exit" target:self selector:@selector(loadAddition:)];
         CCMenu *menu = [CCMenu menuWithItems:menuItem1, menuItem2, nil];
         [menu alignItemsVerticallyWithPadding:5];
         
