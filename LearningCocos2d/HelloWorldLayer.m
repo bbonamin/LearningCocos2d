@@ -23,7 +23,11 @@
 	// 'layer' is an autorelease object.
 	HelloWorldLayer *layer = [HelloWorldLayer node];
     
-	[scene addChild: layer];
+    CCSprite *background = [CCSprite spriteWithFile:@"background.jpg"];
+    background.anchorPoint = ccp(0,0);
+	[layer addChild:background z:-1 tag:100];
+    
+    [scene addChild: layer];
 	
 	return scene;
 }
@@ -83,6 +87,12 @@
     CGPoint location = [touch locationInView:[touch view]];
     location = [[CCDirector sharedDirector] convertToGL:location];
     
+    
+    CCSprite *background = (CCSprite *)[self getChildByTag:100];
+    
+    id effect = [CCLiquid actionWithWaves:10 amplitude:10 grid:ccg(10,10) duration:3];
+    
+    [background runAction:effect];
     float distance = powf(self.monkey.position.x - location.x, 2) + powf(self.monkey.position.y - location.y, 2);
     
     distance = sqrtf(distance);

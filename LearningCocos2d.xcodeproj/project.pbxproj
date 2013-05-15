@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4530030B1743213D00FA7AAB /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4530030A1743213D00FA7AAB /* background.jpg */; };
 		45C098201739CA100003AF5C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45C0981F1739CA100003AF5C /* QuartzCore.framework */; };
 		45C098221739CA100003AF5C /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45C098211739CA100003AF5C /* OpenGLES.framework */; };
 		45C098241739CA100003AF5C /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45C098231739CA100003AF5C /* OpenAL.framework */; };
@@ -126,6 +127,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4530030A1743213D00FA7AAB /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
 		45C0981C1739CA100003AF5C /* LearningCocos2d.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LearningCocos2d.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45C0981F1739CA100003AF5C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		45C098211739CA100003AF5C /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -435,6 +437,7 @@
 		45C098301739CA100003AF5C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4530030A1743213D00FA7AAB /* background.jpg */,
 				45C099901739CD990003AF5C /* yoshiisland.gif */,
 				45C098311739CA100003AF5C /* Default.png */,
 				45C098331739CA100003AF5C /* fps_images.png */,
@@ -821,6 +824,7 @@
 				45C098401739CA100003AF5C /* Icon@2x.png in Resources */,
 				45C098431739CA100003AF5C /* iTunesArtwork in Resources */,
 				45C099911739CD990003AF5C /* yoshiisland.gif in Resources */,
+				4530030B1743213D00FA7AAB /* background.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1022,6 +1026,7 @@
 				45C0998F1739CA190003AF5C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
