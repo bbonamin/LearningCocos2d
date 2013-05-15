@@ -35,8 +35,9 @@
     
     id moveTo = [CCMoveTo actionWithDuration:2.0 position:ccp(x,y)];
     id callback = [CCCallFunc actionWithTarget:self selector:@selector(animation_finished)];
+    id ease = [CCEaseBounceInOut actionWithAction:moveTo];
     
-    [self.monkey runAction:[CCSequence actions: moveTo, callback, nil]];
+    [self.monkey runAction:[CCSequence actions: ease, callback, nil]];
 
 }
 // on "init" you need to initialize your instance
@@ -51,8 +52,8 @@
         
         id moveTo = [CCMoveTo actionWithDuration:2.0 position:ccp(x,y)];
         id callback = [CCCallFunc actionWithTarget:self selector:@selector(animation_finished)];
-        
-        [self.monkey runAction:[CCSequence actions: moveTo, callback, nil]];
+        id ease = [CCEaseBounceInOut actionWithAction:moveTo];
+        [self.monkey runAction:[CCSequence actions: ease, callback, nil]];
         [self addChild:self.monkey];
         
 //        CGSize windowSize = [[CCDirector sharedDirector] winSize];
@@ -88,7 +89,8 @@
     
     if(distance <= 25)
     {
-        [self.monkey runAction:[CCRotateBy actionWithDuration:2.0 angle:360]];
+        id ease = [CCEaseElasticInOut actionWithAction:[CCRotateBy actionWithDuration:5.0 angle:360] period:0.4];
+        [self.monkey runAction:ease];
     }
 }
 // on "dealloc" you need to release all your retained objects
