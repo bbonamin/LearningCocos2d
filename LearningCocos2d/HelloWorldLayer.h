@@ -13,9 +13,11 @@
 // HelloWorldLayer
 @interface HelloWorldLayer : CCLayer
 {
+    CCSprite *monkey;
 }
 
 // returns a CCScene that contains the HelloWorldLayer as the only child
 +(CCScene *) scene;
 
+@property (nonatomic, retain) CCSprite *monkey;
 @end

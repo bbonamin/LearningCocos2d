@@ -13,6 +13,8 @@
 // HelloWorldLayer implementation
 @implementation HelloWorldLayer
 
+@synthesize monkey;
+
 +(CCScene *) scene
 {
 	// 'scene' is an autorelease object.
@@ -20,36 +22,75 @@
 	
 	// 'layer' is an autorelease object.
 	HelloWorldLayer *layer = [HelloWorldLayer node];
-	
-	// add layer as a child to scene
+    
 	[scene addChild: layer];
 	
-	// return the scene
 	return scene;
 }
 
+- (void) animation_finished
+{
+    int x = arc4random() % 320;
+    int y = arc4random() % 480;
+    
+    id moveTo = [CCMoveTo actionWithDuration:2.0 position:ccp(x,y)];
+    id callback = [CCCallFunc actionWithTarget:self selector:@selector(animation_finished)];
+    
+    [self.monkey runAction:[CCSequence actions: moveTo, callback, nil]];
+
+}
 // on "init" you need to initialize your instance
 -(id) init
 {
-	// always call "super" init
-	// Apple recommends to re-assign "self" with the "super" return value
 	if( (self=[super init])) {
-		
-		// create and initialize a Label
-		CCLabelTTF *label = [CCLabelTTF labelWithString:@"Hello World" fontName:@"Marker Felt" fontSize:64];
-
-		// ask director the the window size
-		CGSize size = [[CCDirector sharedDirector] winSize];
-	
-		// position the label on the center of the screen
-		label.position =  ccp( size.width /2 , size.height/2 );
-		
-		// add the label as a child to this Layer
-		[self addChild: label];
+        isTouchEnabled_ = YES;
+        self.monkey = [CCSprite spriteWithFile:@"yoshiisland.gif"];
+        
+        int x = arc4random() % 320;
+        int y = arc4random() % 480;
+        
+        id moveTo = [CCMoveTo actionWithDuration:2.0 position:ccp(x,y)];
+        id callback = [CCCallFunc actionWithTarget:self selector:@selector(animation_finished)];
+        
+        [self.monkey runAction:[CCSequence actions: moveTo, callback, nil]];
+        [self addChild:self.monkey];
+        
+//        CGSize windowSize = [[CCDirector sharedDirector] winSize];
+//        CCSprite *monkey = [CCSprite spriteWithFile:@"yoshiisland.gif"];
+//        monkey.position = ccp(windowSize.width/2,windowSize.height/2);
+//        
+//        id moveTo = [CCMoveTo actionWithDuration:0.9 position:ccp(100,100)];
+//        id rotateBy = [CCRotateBy actionWithDuration:0.9 angle:360];
+//        id callback = [CCCallFunc actionWithTarget:self selector:@selector(animation_finished)];
+//        
+//        [monkey runAction:[CCSequence actions:moveTo, rotateBy, callback, nil]];
+//        [monkey runAction: [CCMoveTo actionWithDuration:0.9 position:ccp(200,200)]];
+//        [monkey runAction: [CCRotateBy actionWithDuration: 0.9 angle:360]];
+//        
+//        
+//        [self addChild:monkey];
+        
+        
+        
 	}
 	return self;
 }
 
+-(void) ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch *touch = [touches anyObject];
+    CGPoint location = [touch locationInView:[touch view]];
+    location = [[CCDirector sharedDirector] convertToGL:location];
+    
+    float distance = powf(self.monkey.position.x - location.x, 2) + powf(self.monkey.position.y - location.y, 2);
+    
+    distance = sqrtf(distance);
+    
+    if(distance <= 25)
+    {
+        [self.monkey runAction:[CCRotateBy actionWithDuration:2.0 angle:360]];
+    }
+}
 // on "dealloc" you need to release all your retained objects
 - (void) dealloc
 {

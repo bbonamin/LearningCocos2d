@@ -122,6 +122,7 @@
 		45C099831739CA190003AF5C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C099821739CA190003AF5C /* AppDelegate.m */; };
 		45C099861739CA190003AF5C /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C099851739CA190003AF5C /* RootViewController.m */; };
 		45C099891739CA190003AF5C /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C099881739CA190003AF5C /* HelloWorldLayer.m */; };
+		45C099911739CD990003AF5C /* yoshiisland.gif in Resources */ = {isa = PBXBuildFile; fileRef = 45C099901739CD990003AF5C /* yoshiisland.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -360,6 +361,7 @@
 		45C099871739CA190003AF5C /* HelloWorldLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelloWorldLayer.h; sourceTree = "<group>"; };
 		45C099881739CA190003AF5C /* HelloWorldLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer.m; sourceTree = "<group>"; };
 		45C0998A1739CA190003AF5C /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
+		45C099901739CD990003AF5C /* yoshiisland.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = yoshiisland.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -433,6 +435,7 @@
 		45C098301739CA100003AF5C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				45C099901739CD990003AF5C /* yoshiisland.gif */,
 				45C098311739CA100003AF5C /* Default.png */,
 				45C098331739CA100003AF5C /* fps_images.png */,
 				45C098351739CA100003AF5C /* Icon-72.png */,
@@ -817,6 +820,7 @@
 				45C0983E1739CA100003AF5C /* Icon.png in Resources */,
 				45C098401739CA100003AF5C /* Icon@2x.png in Resources */,
 				45C098431739CA100003AF5C /* iTunesArtwork in Resources */,
+				45C099911739CD990003AF5C /* yoshiisland.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
