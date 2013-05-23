@@ -34,7 +34,7 @@
 
 -(void) loadAddition: (id) item
 {
-    NSLog(@"Load addition fired");
+  [[CCDirector sharedDirector] replaceScene:[CCTransitionJumpZoom transitionWithDuration:1.0 scene:[GameLayer scene]] ];
 }
 // on "init" you need to initialize your instance
 -(id) init

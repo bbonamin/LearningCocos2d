@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4530030B1743213D00FA7AAB /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4530030A1743213D00FA7AAB /* background.jpg */; };
+		4585E9AA174D936E00550197 /* GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4585E9A9174D936E00550197 /* GameLayer.m */; };
 		45C098201739CA100003AF5C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45C0981F1739CA100003AF5C /* QuartzCore.framework */; };
 		45C098221739CA100003AF5C /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45C098211739CA100003AF5C /* OpenGLES.framework */; };
 		45C098241739CA100003AF5C /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45C098231739CA100003AF5C /* OpenAL.framework */; };
@@ -128,6 +129,8 @@
 
 /* Begin PBXFileReference section */
 		4530030A1743213D00FA7AAB /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
+		4585E9A8174D936E00550197 /* GameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLayer.h; sourceTree = "<group>"; };
+		4585E9A9174D936E00550197 /* GameLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.objc; path = GameLayer.m; sourceTree = "<group>"; };
 		45C0981C1739CA100003AF5C /* LearningCocos2d.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LearningCocos2d.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45C0981F1739CA100003AF5C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		45C098211739CA100003AF5C /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -392,7 +395,9 @@
 				45C0981E1739CA100003AF5C /* Frameworks */,
 				45C0981D1739CA100003AF5C /* Products */,
 			);
+			indentWidth = 2;
 			sourceTree = "<group>";
+			tabWidth = 1;
 		};
 		45C0981D1739CA100003AF5C /* Products */ = {
 			isa = PBXGroup;
@@ -420,6 +425,8 @@
 		45C0982F1739CA100003AF5C /* LearningCocos2d */ = {
 			isa = PBXGroup;
 			children = (
+				4585E9A8174D936E00550197 /* GameLayer.h */,
+				4585E9A9174D936E00550197 /* GameLayer.m */,
 				45C099811739CA190003AF5C /* AppDelegate.h */,
 				45C099821739CA190003AF5C /* AppDelegate.m */,
 				45C099841739CA190003AF5C /* RootViewController.h */,
@@ -933,6 +940,7 @@
 				45C099831739CA190003AF5C /* AppDelegate.m in Sources */,
 				45C099861739CA190003AF5C /* RootViewController.m in Sources */,
 				45C099891739CA190003AF5C /* HelloWorldLayer.m in Sources */,
+				4585E9AA174D936E00550197 /* GameLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
